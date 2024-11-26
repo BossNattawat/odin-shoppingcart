@@ -72,7 +72,7 @@ function product() {
                 {products.map((item, index) => (
                     <div className="border-2 w-[300px] p-7 h-[550px] flex flex-col items-center justify-around shadow-lg" key={index}>
                         <div className="w-full h-full flex items-center justify-center">
-                            <Image className='h-auto w-[180px]' priority src={item.image} width={170} height={170} alt={item.title}/>
+                            <Image className='h-auto w-[180px]' src={item.image} width={170} height={170} alt={item.title}/>
                         </div>
                         <div className="flex flex-col w-full">
                             <p className='text-lg my-4'>{item.title}</p>
