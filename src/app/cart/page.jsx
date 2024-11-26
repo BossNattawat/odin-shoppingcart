@@ -1,10 +1,15 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useState, useEffect  } from 'react'
 import Link from 'next/link';
 
 function cart() {
-    const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
+    const [cart, setCart] = useState([]);
+
+    useEffect(() => {
+      const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+      setCart(storedCart);
+    }, []);
 
     const getTotalPrice = () =>
       cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);

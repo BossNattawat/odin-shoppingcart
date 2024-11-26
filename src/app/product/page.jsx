@@ -7,7 +7,7 @@ import Image from 'next/image'
 function product() {
 
     const [products, setProducts] = useState([])
-    const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || [])
+    const [cart, setCart] = useState([])
     const [alert, setAlert] = useState(false)
     const [loaded, setLoaded] = useState(false)
 
@@ -22,6 +22,11 @@ function product() {
             setLoaded(false)
         })
     }, [])
+
+    useEffect(() => {
+        const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+        setCart(storedCart);
+    }, []);
 
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
